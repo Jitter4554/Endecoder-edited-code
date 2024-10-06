@@ -2,7 +2,10 @@ Version : 1.0
 Uploaded To Github : 10/3/2024
 
 Created By : @NovaTheTransGirl
+Optimized by :@jitter4554 
 Lanuage : Python
+
+EXE NOT UPDATED USE THE CODE ITSELF 
 
 This Uses A Reverse Alphabet
 
@@ -15,41 +18,44 @@ ZYXWVUTSRQPONMLKJIHGFEDCBA~}]{[<,>.?/';: +=_-)(*&^%$#@!0987654321zyxwvutsrqponml
 
 
 --------------------------------------------------------------------------------
-
+~~~
 Source Code:
-```
 import time
 
-a = input("Encode(1) or Decoded(2)? : ")
+def translate():
+    alphabet = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()-_=+ :;'/?.>,<[{]}~ABCDEFGHIJKLMNOPQRSTUVWXYZ
+"
+    ralphabet = "ZYXWVUTSRQPONMLKJIHGFEDCBA~}]{[<,>.?/';: +=_-)(*&^%$#@!0987654321zyxwvutsrqponmlkjihgfedcba"
 
-alphabet = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()-_=+ :;'/?.>,<[{]}~ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-ralphabet = "ZYXWVUTSRQPONMLKJIHGFEDCBA~}]{[<,>.?/';: +=_-)(*&^%$#@!0987654321zyxwvutsrqponmlkjihgfedcba"
-f = ""
-if a == "1":
-    b = input("Input Text To be Encode! : ")
+    while True:
+        choice = input("Encode(1) or Decode(2)? Enter X to Exit: ").strip()
 
-    c = len(b)
-    for x in range(0, c):
-        d = alphabet.index(b[x])
+        if choice.lower() == 'x':
+            print("Exiting...")
+            break
 
-        f = f + ralphabet[d]
+        if choice not in ['1', '2']:
+            print("Invalid choice, please try again.")
+            continue
 
-    print(f)
-else:
-    b = input("Input Decoded Text! : ")
+        text = input("Input text: ").strip()
+        result = ""
 
-    c = len(b)
-    for x in range(0, c):
-        d = ralphabet.index(b[x])
+        if choice == "1":  # Encoding
+            for char in text:
+                if char in alphabet:
+                    result += ralphabet[alphabet.index(char)]
+                else:
+                    result += char
+            print(f"Encoded Text: {result}")
+        
+        elif choice == "2":  # Decoding
+            for char in text:
+                if char in ralphabet:
+                    result += alphabet[ralphabet.index(char)]
+                else:
+                    result += char
+            print(f"Decoded Text: {result}")
 
-        f = f + alphabet[d]
-
-    print(f)
-
-
-z=input("[X] to call close : ")
-if z == "X":
-    exit()
-
-if z == "x":
-    exit()```
+translate()
+~~~~
